@@ -1,0 +1,28 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\paradise\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.3.0
+2 info using node@v22.15.0
+3 silly config load:file:C:\Users\paradise\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\paradise\.npmrc
+5 silly config load:file:C:\Users\paradise\AppData\Roaming\npm\etc\npmrc
+6 verbose title npm init
+7 verbose argv "init" "--yes"
+8 verbose logfile logs-max:10 dir:C:\Users\paradise\Downloads\ts-pokedex\npm-cache\_logs\2025-07-07T07_11_19_381Z-
+9 verbose logfile C:\Users\paradise\Downloads\ts-pokedex\npm-cache\_logs\2025-07-07T07_11_19_381Z-debug-0.log
+10 silly logfile done cleaning log files
+11 silly package data {
+11 silly package data   name: 'ts-pokedex',
+11 silly package data   version: '1.0.0',
+11 silly package data   description: '',
+11 silly package data   main: 'index.js',
+11 silly package data   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+11 silly package data   keywords: [],
+11 silly package data   author: '',
+11 silly package data   license: 'ISC',
+11 silly package data   type: 'commonjs'
+11 silly package data }
+12 verbose cwd C:\Users\paradise\Downloads\ts-pokedex
+13 verbose os Windows_NT 10.0.26100
+14 verbose node v22.15.0
+15 verbose npm  v11.3.0
+16 verbose exit 0
+17 info ok
