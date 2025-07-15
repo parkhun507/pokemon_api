@@ -4,55 +4,72 @@ import { useNavigate } from 'react-router-dom';
 
 interface Props {
   pokemon: Pokemon;
+  toggleLike: (id: number) => void;
 }
 
-const PokemonCard: React.FC<Props> = ({ pokemon }) => {
+const PokemonCard: React.FC<Props> = ({ pokemon, toggleLike }) => {
   const navigate = useNavigate();
+
   return (
     <div
       style={{
-        cursor: 'pointer',
+        borderRadius: '20px',
+        background: pokemon.liked ? '#fce4ec' : '#f5f5f5',
+        boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+        padding: '20px 10px',
         textAlign: 'center',
-        borderRadius: '12px',
-        padding: '15px',
-        background: 'linear-gradient(135deg, #f0f4ff, #d9e4ff)',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        cursor: 'pointer',
         transition: 'transform 0.2s, box-shadow 0.2s',
-        userSelect: 'none',
+        border: '1px solid #ddd',
       }}
       onClick={() => navigate(`/detail/${pokemon.id}`)}
-      onMouseEnter={e => {
-        const target = e.currentTarget;
-        target.style.transform = 'scale(1.05)';
-        target.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.3)';
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-4px)';
+        (e.currentTarget as HTMLDivElement).style.boxShadow = '0 6px 12px rgba(0,0,0,0.15)';
       }}
-      onMouseLeave={e => {
-        const target = e.currentTarget;
-        target.style.transform = 'scale(1)';
-        target.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLDivElement).style.transform = 'none';
+        (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
       }}
     >
-      <img
-        src={pokemon.image}
-        alt={pokemon.name}
-        width={96}
-        style={{ borderRadius: '50%', marginBottom: '10px', border: '2px solid #4a90e2', background: 'white' }}
-      />
-      <p
+      <div
         style={{
-          fontWeight: '700',
-          fontSize: '1.1rem',
-          color: '#33475b',
-          margin: 0,
-          textTransform: 'capitalize',
-          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+          width: '96px',
+          height: '96px',
+          margin: '0 auto 10px',
+          borderRadius: '50%',
+          background: '#fff',
+          border: '2px solid #90caf9',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden'
         }}
       >
-        {pokemon.name}
-      </p>
+        <img
+          src={pokemon.image}
+          alt={pokemon.name}
+          style={{ width: '80px', height: '80px', objectFit: 'contain' }}
+        />
+      </div>
+      <p style={{ fontWeight: 'bold', marginBottom: '8px' }}>{pokemon.name}</p>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleLike(pokemon.id);
+        }}
+        style={{
+          fontSize: '1.5rem',
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+        }}
+      >
+        {pokemon.liked ? '❤️' : '♡'}
+      </button>
     </div>
   );
 };
 
-
 export default PokemonCard;
+

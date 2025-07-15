@@ -5,4 +5,5 @@ export interface Pokemon {
   height: number;
   weight: number;
   types: string[];
+  liked?: boolean;  // ❤️ 추가
 }
